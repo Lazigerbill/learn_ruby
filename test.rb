@@ -1,21 +1,15 @@
-def translate(input)
-	array=input.split(//)
-	puts array.inspect
-	if array[0]=="a"||array[0]=="o"||array[0]=="u"||array[0]=="i"||array[0]=="e"
-		array<<"ay"
-		result=array
-	elsif array[1]=="a"||array[0]=="o"||array[0]=="u"||array[0]=="i"||array[0]=="e"
-		result=array.drop(1)
-		result<<array[0]
-		result<<"ay"
-	else
-		result=array.drop(2)
-		result<<array[0]
-		result<<array[1]
-		result<<"ay"
+class Temperature
+	attr_accessor :hash
+	def initialize(hash)
+		@hash=hash
 	end
-	puts result.join
-	
+
+	def to_fahrenheit
+		result=(@hash[:f]-32)*5/9
+		return result
+	end
+
 end
 
-translate("cherry")
+
+puts Temperature.new({:f => 50}).to_fahrenheit
